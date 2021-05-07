@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const DivNavBar = styled.div`
@@ -16,15 +17,30 @@ const Li = styled.li`
   margin: 0 1rem;
   cursor: pointer;
   border-bottom: ${props => props.active && '2px solid #E5261E'};
-  color: ${props => props.active && '#E5261E'};
+  a {
+    color: ${props => props.active && '#E5261E'};
+  }
 `;
 
 const NavBar: FC = () => {
+  function linkClickHandler(e: any): void {
+    // e.preventDefault();
+    if (e.target.localName === 'li') {
+      console.log(e.target);
+    }
+    // console.log(e);
+    e.target.setAttribute('active', 'true');
+  }
+  
   return (
     <DivNavBar className="container">
       <Ul>
-        <Li active>Фильмы</Li>
-        <Li>Телеканалы</Li>
+        <Li active onClick={(e) => linkClickHandler(e)}>
+          <Link to="./movies">Фильмы</Link>
+        </Li>
+        <Li onClick={(e) => linkClickHandler(e)}>
+          <Link to="./tv">Телеканалы</Link>
+        </Li >
       </Ul>
     </DivNavBar>
   );

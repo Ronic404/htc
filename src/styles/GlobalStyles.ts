@@ -22,13 +22,17 @@ export default createGlobalStyle`
     font-family: 'rubik', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333333;
     list-style: none;
     text-decoration: none;
   }
 
   html {
     font-size: 10px;
+    color: #333333;
+  }
+
+  a {
+    color: #333333;
   }
 
   .container {
