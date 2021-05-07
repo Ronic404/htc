@@ -23,6 +23,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     color: #333333;
+    list-style: none;
   }
 
   html {
