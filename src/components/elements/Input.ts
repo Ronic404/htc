@@ -1,4 +1,3 @@
-// import { FC } from 'react';
 import styled from 'styled-components';
 
 export const InputElement = styled.input`
@@ -15,15 +14,3 @@ export const InputElement = styled.input`
     outline: none;
   }
 `;
-
-// interface InputProps {
-//   placeholder: string;
-// }
-
-// const Input: FC<InputProps> = ({ placeholder }) => {
-//   return (
-//     <InputElement placeholder={placeholder} /> 
-//   );
-// }
-
-// export default Input;

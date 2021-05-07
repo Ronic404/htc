@@ -1,4 +1,3 @@
-// import { FC } from 'react';
 import styled from 'styled-components';
 
 export const ButtonElement = styled.button`
@@ -17,17 +16,3 @@ export const ButtonElement = styled.button`
     background-color: #CC221B;
   }
 `;
-
-// interface ButtonProps {
-//   title: string;
-// }
-
-// const Button: FC<ButtonProps> = ({ title }) => {
-//   return (
-//     <ButtonElement>
-//       {title}
-//     </ButtonElement> 
-//   );
-// }
-
-// export default Button;

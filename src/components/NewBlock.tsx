@@ -2,18 +2,13 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import movies from '../store/movies';
+import { TitleElement } from './elements/TitleElement';
 
 const DivNew = styled.div`
   margin: 3rem auto;
 `;
 
-const NewTitle = styled.h2`
-  font-size: 2.4rem;
-  font-weight: 500;
-  margin: 1.6rem 0;
-`;
-
-const NewMovies = styled.div`
+const MoviesList = styled.ul`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -35,7 +30,7 @@ const MovieDescription = styled.p`
   line-height: 1.4;
 `;
 
-const MovieItem = styled.div`
+const MovieItem = styled.li`
   flex-basis: 25%;
 `;
 
@@ -61,11 +56,11 @@ const MovieTitle = styled.p`
   line-height: 1.2;
 `;
 
-const New: FC = () => {
+const NewBlock: FC = () => {
   return (
     <DivNew className="container">
-      <NewTitle>🔥 Новинки</NewTitle>
-      <NewMovies>
+      <TitleElement>🔥 Новинки</TitleElement>
+      <MoviesList>
         {movies.map(movie => (
           <MovieItem key={movie.id}>
             <MovieCover>
@@ -75,9 +70,9 @@ const New: FC = () => {
             <MovieTitle>{movie.title}</MovieTitle>
           </MovieItem>
         ))}
-      </NewMovies>
+      </MoviesList>
     </DivNew>
   );
 }
 
-export default New;
+export default NewBlock;
