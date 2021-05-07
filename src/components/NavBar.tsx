@@ -2,7 +2,6 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 const DivNavBar = styled.div`
-
 `;
 
 const Ul = styled.ul`

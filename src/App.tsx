@@ -4,6 +4,7 @@ import GlobalStyles from './styles/GlobalStyles';
 
 import Header from './components/Header';
 import NavBar from './components/NavBar';
+import MoviesBlock from './components/New';
 
 const App: FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: FC = () => {
       <GlobalStyles />
       <Header />
       <NavBar />
+      <MoviesBlock />
     </>
   );
 }
