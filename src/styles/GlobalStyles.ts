@@ -24,6 +24,7 @@ export default createGlobalStyle`
     padding: 0;
     color: #333333;
     list-style: none;
+    text-decoration: none;
   }
 
   html {
