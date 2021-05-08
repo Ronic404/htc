@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { ButtonElement } from './elements/Button';
-import { InputElement } from './elements/Input';
+import { ButtonElement } from './elements/ButtonElement';
+import { InputElement } from './elements/InputElement';
 
 const DivSeachBar = styled.div`
   width: 400px;

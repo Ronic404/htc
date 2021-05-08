@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -25,11 +25,11 @@ const Li = styled.li`
 const NavBar: FC = () => {
   function linkClickHandler(e: any): void {
     // e.preventDefault();
-    if (e.target.localName === 'li') {
-      console.log(e.target);
-    }
+    // if (e.target.localName === 'li') {
+    //   console.log(e.target);
+    // }
     // console.log(e);
-    e.target.setAttribute('active', 'true');
+    // e.target.setAttribute('active', 'true');
   }
   
   return (
