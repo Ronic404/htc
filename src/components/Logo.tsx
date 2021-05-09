@@ -6,6 +6,7 @@ import sign from '../img/sign.svg';
 const DivLogo = styled.div`
   display: flex;
   align-items: center;
+  width: 250px;
 `;
 
 const ImgLogo = styled.img`

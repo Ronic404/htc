@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { logInAction, showPopUpAction } from '../store/actions';
 import { IActions } from '../types/forRedux';
 
-import { ButtonElement } from './elements/ButtonElement';
+import { MainButton } from './elements/Buttons';
 import { InputElement } from './elements/InputElement';
 
 const Container = styled.div`
@@ -101,7 +101,7 @@ const Wrong = styled.p`
   bottom: 30px;
 `;
 
-const Submit = styled(ButtonElement)`
+const Submit = styled(MainButton)`
   align-self: center;
 `;
 
@@ -114,7 +114,7 @@ interface IPopUpProps {
 
 const PopUp: FC<IPopUpProps> = ({ logInAction, showPopUpAction }) => {
   const [isWrong, setIsWrong] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('424');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const loginRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { ButtonElement } from './elements/ButtonElement';
+import { TransparentButton } from './elements/Buttons';
 import { InputElement } from './elements/InputElement';
 
 const DivSeachBar = styled.div`
@@ -14,19 +14,11 @@ const InputSearch = styled(InputElement)`
   flex: 1;
 `;
 
-const ButtonSearch = styled(ButtonElement)`
-  background-color: transparent;
-  color: #E5261E;
-  :hover {
-    background-color: transparent;
-  }
-`;
-
 const SearchBar: FC = () => {
   return (
     <DivSeachBar>
       <InputSearch placeholder="Поиск..." />
-      <ButtonSearch>Найти</ButtonSearch>
+      <TransparentButton>Найти</TransparentButton>
     </DivSeachBar>
   );
 }

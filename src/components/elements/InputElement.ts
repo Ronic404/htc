@@ -5,6 +5,7 @@ export const InputElement = styled.input`
   border: none;
   border-bottom: 1px solid #333333;
   font-weight: 500;
+  color: #333333;
 
   ::placeholder {
     font-weight: 400;

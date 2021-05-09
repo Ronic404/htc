@@ -1,13 +1,14 @@
-import { Dispatch, FC } from 'react';
+import { Dispatch, FC, useState, ChangeEvent, KeyboardEvent, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { IActions, IState } from '../types/forRedux';
 import { logOutAction, showPopUpAction } from '../store/actions';
 
-import { ButtonElement } from './elements/ButtonElement';
+import { MainButton, TransparentButton } from './elements/Buttons';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
+import { InputElement } from './elements/InputElement';
 
 const DivHeader = styled.div`
   display: flex;
@@ -17,7 +18,21 @@ const DivHeader = styled.div`
   align-items: center;
 `;
 
-const ButtonSign = styled(ButtonElement)`
+const DivAuth = styled.div`
+  width: 250px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const InputChangeName = styled(InputElement)`
+  display: flex;
+`;
+
+const AuthName = styled.p`
+  font-size: 1.6rem;
+  font-weight: 500;
+  align-self: center;
+  overflow: hidden;
 `;
 
 interface IHeaderProps {
@@ -29,17 +44,71 @@ interface IHeaderProps {
 // Component
 
 const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }) => {
+  const [personName, setPersonName] = useState<string>('admin');
+  const [showChangePersonName, setShowChangePersonName] = useState<boolean>(false);
+  const [prevName, setPrevName] = useState<string>(personName);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', (e: any) => {
+      if (!e.target.classList.contains(InputChangeName.styledComponentId)) {
+        setShowChangePersonName(false);
+        setPersonName(prevName);
+      }
+    });
+    return () => {document.removeEventListener('keydown', () =>{
+      setShowChangePersonName(false);
+        setPersonName(prevName);
+    })};
+  }, [prevName]);
+
   function buttonClickHandler(): void {
-    !isAuthorized ? showPopUpAction(true) : logOutAction();
+    if (isAuthorized) {
+      logOutAction();
+    } else {
+      showPopUpAction(true)
+    } 
+  }
+
+  function changePersonName(e: ChangeEvent<HTMLInputElement>): void {
+    setPersonName(e.target.value);
+  }
+
+  function saveName(e: KeyboardEvent<HTMLInputElement>): void {
+    if (e.code === 'Enter') {
+      if (personName === '') {
+        setShowChangePersonName(false);
+        setPersonName(prevName);
+      } else {
+        setShowChangePersonName(false);
+        setPrevName(personName);
+      }
+    } else if (e.code === 'Escape') {
+      setShowChangePersonName(false);
+      setPersonName(prevName);
+    }
   }
 
   return (
     <DivHeader className="container">
       <Logo />
       <SearchBar />
-      <ButtonSign onClick={buttonClickHandler}>
-        {isAuthorized ? 'Выйти' : 'Войти'}
-      </ButtonSign>
+      <DivAuth>
+        {isAuthorized ?
+          <>
+            {showChangePersonName ?
+              <>
+                <InputChangeName value={personName} onChange={(e) => changePersonName(e)} onKeyDown={saveName} autoFocus />
+                <TransparentButton onClick={buttonClickHandler}>Выйти</TransparentButton>
+              </> :
+              <>
+                <AuthName onClick={() => setShowChangePersonName(true)}>{personName}</AuthName>
+                <TransparentButton onClick={buttonClickHandler}>Выйти</TransparentButton>
+              </>
+            }
+          </> :
+          <MainButton onClick={buttonClickHandler}>Войти</MainButton>
+        }
+      </DivAuth>
     </DivHeader>
   );
 };
