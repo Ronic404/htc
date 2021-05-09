@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import colors from './constants';
 
 import Rubik_regular from '../fonts/Rubik/static/Rubik-Regular.ttf';
 import Rubik_medium from '../fonts/Rubik/static/Rubik-Medium.ttf';
@@ -31,11 +32,11 @@ export default createGlobalStyle`
 
   html {
     font-size: 10px;
-    color: #333333;
+    color: ${colors.gray_1};
   }
 
   a {
-    color: #333333;
+    color: ${colors.gray_1};
   }
 
   .container {

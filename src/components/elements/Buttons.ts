@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../styles/constants';
 
 const ButtonElement = styled.button`
   font-size: 1.6rem;
@@ -13,16 +14,16 @@ const ButtonElement = styled.button`
 
 const MainButton = styled(ButtonElement)`
   color: white;
-  background-color: #E5261E; 
+  background-color: ${colors.red}; 
   transition: 0.3s;
   :hover {
-    background-color: #CC221B;
+    background-color: ${colors.hover};
   }
 `;
 
 const TransparentButton = styled(ButtonElement)`
   background-color: transparent;
-  color: #E5261E;
+  color: ${colors.red};
   padding-left: 0;
   padding-right: 0;
   margin-left: 1.6rem;

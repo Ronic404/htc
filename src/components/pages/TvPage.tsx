@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import tvSchedule from '../../store/tvSchedule';
+import colors from '../../styles/constants';
 
 const DivTvPage = styled.div`
   margin: 2.5rem auto;
@@ -34,7 +35,7 @@ const ChannelLogo = styled.img`
   max-width: 114px;
 `;
 
-const ChannelDescription = styled.li`
+const ChannelDescription = styled.div`
   flex-basis: 70%;
 `;
 
@@ -51,7 +52,7 @@ const DivProgram = styled.li`
   display: flex;
   font-size: 1.6rem;
   margin: 1rem 0;
-  color: ${props => props.active && '#E5261E'} !important;
+  color: ${props => props.active && colors.red} !important;
 `;
 
 const ProgramTime = styled.p`

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { logInAction, showPopUpAction } from '../store/actions';
+import colors from '../styles/constants';
 import { IActions } from '../types/forRedux';
 
 import { MainButton } from './elements/Buttons';
@@ -69,7 +70,7 @@ const Label = styled.label`
     display: inline-block;
     position: relative;
     top: 3px;
-    border: 1px solid #333333;
+    border: 1px solid ${colors.gray_1};
     border-radius: 4px;
     width: 1em;
     height: 1em;
@@ -87,7 +88,7 @@ const CheckboxElement = styled.input`
     left: 4px;
     width: 10px;
     height: 5px;
-    border: 1px solid #E5261E;
+    border: 1px solid ${colors.red};
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
@@ -96,7 +97,7 @@ const CheckboxElement = styled.input`
 
 const Wrong = styled.p`
   display: ${props => props.active ? 'block' : 'none'};
-  color: red;
+  color: ${colors.red};
   position: absolute;
   bottom: 30px;
 `;

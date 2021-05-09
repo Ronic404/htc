@@ -1,4 +1,4 @@
-import { Dispatch, FC, useState, ChangeEvent, KeyboardEvent, useEffect } from 'react';
+import { Dispatch, FC, useState, ChangeEvent, KeyboardEvent, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -44,20 +44,23 @@ interface IHeaderProps {
 // Component
 
 const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }) => {
-  const [personName, setPersonName] = useState<string>('admin');
+  const [personName, setPersonName] = useState<string>('name');
   const [showChangePersonName, setShowChangePersonName] = useState<boolean>(false);
   const [prevName, setPrevName] = useState<string>(personName);
+
+  console.log('Render header');
+
+  const clicker = useCallback((e: any) => {
+    if (!e.target.classList.contains(InputChangeName.styledComponentId)) {
+      setShowChangePersonName(false);
+      setPersonName(personName || prevName);
+    }
+  }, [personName, prevName])
   
   useEffect(() => {
-    const func = (e: any) => {
-      if (!e.target.classList.contains(InputChangeName.styledComponentId)) {
-        setShowChangePersonName(false);
-        if (personName === '') setPersonName(prevName);
-      }
-    }
-    document.addEventListener('mousedown', (e) => func(e));
-    return () => { document.removeEventListener('mousedown', (e) => func(e)) };
-  }, [personName, prevName]);
+    document.addEventListener('mousedown', clicker);
+    return () => { document.removeEventListener('mousedown', clicker) };
+  }, [clicker]);
 
   function buttonClickHandler(): void {
     if (isAuthorized) {
@@ -81,8 +84,8 @@ const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }
         setPrevName(personName);
       }
     } else if (e.code === 'Escape') {
-      setShowChangePersonName(false);
       setPersonName(prevName);
+      setShowChangePersonName(false);
     }
   }
 

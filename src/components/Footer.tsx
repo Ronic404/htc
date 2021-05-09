@@ -2,9 +2,10 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import archer from '../img/archer.svg'
+import colors from '../styles/constants';
 
 const DivFooter = styled.div`
-  background: #F2F2F2;
+  background: ${colors.gray_6};
   margin-top: 7rem;
 `;
 
@@ -26,16 +27,14 @@ const Socials = styled.div`
 `;
 
 const Adress = styled.p`
-
 `;
 
 const PhoneNumbers = styled.a`
-
 `;
 
 const Link = styled.a`
   font-weight: 500;
-  color: #1F4766;
+  color: ${colors.htc};
   margin-top: 0.4rem;
 `;
 
