@@ -1,7 +1,7 @@
 import { ActionTypes, IActions, IState } from '../types/forRedux';
 
 const initialState: IState = {
-  isAuthorized: true,
+  isAuthorized: false,
   isShowPopUp: false,
 }
 

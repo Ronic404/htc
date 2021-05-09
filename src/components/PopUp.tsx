@@ -147,7 +147,7 @@ const PopUp: FC<IPopUpProps> = ({ logInAction, showPopUpAction }) => {
       <PopUpTitle>Вход</PopUpTitle>
       <FormPopUp method="POST" action="#">
         <DivInputs onKeyDown={() => setIsWrong(false)}>
-          <Input ref={loginRef} type="text" name="login" placeholder="Логин" />
+          <Input ref={loginRef} type="text" name="login" placeholder="Логин" autoFocus/>
           <Input ref={passwordRef} type="password" name="password" placeholder="Пароль" />
           <CheckboxElement type="checkbox" id="remember" />
           <Label htmlFor="remember">Запомнить</Label>

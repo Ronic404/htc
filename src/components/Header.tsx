@@ -47,19 +47,17 @@ const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }
   const [personName, setPersonName] = useState<string>('admin');
   const [showChangePersonName, setShowChangePersonName] = useState<boolean>(false);
   const [prevName, setPrevName] = useState<string>(personName);
-
+  
   useEffect(() => {
-    document.addEventListener('mousedown', (e: any) => {
+    const func = (e: any) => {
       if (!e.target.classList.contains(InputChangeName.styledComponentId)) {
         setShowChangePersonName(false);
-        setPersonName(prevName);
+        if (personName === '') setPersonName(prevName);
       }
-    });
-    return () => {document.removeEventListener('keydown', () =>{
-      setShowChangePersonName(false);
-        setPersonName(prevName);
-    })};
-  }, [prevName]);
+    }
+    document.addEventListener('mousedown', (e) => func(e));
+    return () => { document.removeEventListener('mousedown', (e) => func(e)) };
+  }, [personName, prevName]);
 
   function buttonClickHandler(): void {
     if (isAuthorized) {
