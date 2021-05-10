@@ -13,10 +13,11 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #333333;
+  bottom: -1000px;
+  right: 0;
+  background: ${colors.gray_1};
   opacity: 0.6;
+  z-index: 100;
 `;
 
 const DivPopUp = styled.div`
@@ -33,6 +34,7 @@ const DivPopUp = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 3.6rem;
+  z-index: 101;
 `;
 
 const PopUpTitle = styled.h4`
@@ -118,6 +120,11 @@ const PopUp: FC<IPopUpProps> = ({ logInAction, showPopUpAction }) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const loginRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = 'visible' };
+  }, [])
 
   useEffect(() => {
     document.addEventListener('keydown', (e) => {
