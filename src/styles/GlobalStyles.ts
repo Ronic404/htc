@@ -5,7 +5,11 @@ import colors, { device } from './constants';
 import Rubik_regular from '../fonts/Rubik/static/Rubik-Regular.ttf';
 import Rubik_medium from '../fonts/Rubik/static/Rubik-Medium.ttf';
 
+import SwiperStyles from 'swiper/swiper-bundle.css';
+
 export default createGlobalStyle`
+  ${SwiperStyles}
+
   @font-face {
     font-family: 'rubik';
     src: url(${Rubik_regular});

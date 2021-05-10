@@ -1,21 +1,17 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import Swiper from 'react-id-swiper';
 
 import genres from '../store/genres';
 import { TitleElement } from './elements/TitleElement';
+import { device, swipeParams } from '../styles/constants';
+
 
 const DivGenres = styled.div`
   margin: 3rem auto;
 `;
 
-const GenreList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-`;
-
-const GenreItem = styled.li`
-  flex-basis: 25%;
+const GenreItem = styled.div`
   border-radius: 6px;
   cursor: pointer;
   opacity: 0.8;
@@ -25,6 +21,15 @@ const GenreItem = styled.li`
   padding-top: 18%;
   :hover {
     opacity: 1;
+  }
+  @media ${device.laptop} {
+    padding-top: 24%;
+  }
+  @media ${device.tablet} {
+    padding-top: 36%;
+  }
+  @media ${device.mobileS} {
+    padding-top: 72%;
   }
 `;
 
@@ -49,14 +54,14 @@ const GenresBlock: FC = () => {
   return (
     <DivGenres className="container">
       <TitleElement>Жанры</TitleElement>
-      <GenreList>
+      <Swiper {...swipeParams}>
         {genres.map(genre => (
             <GenreItem key={genre.id} style={{backgroundImage: genre.backgroung}}>
               <GenreSmile>{genre.smile}</GenreSmile>
               <GenreTitle>{genre.title}</GenreTitle>
             </GenreItem>
         ))}
-      </GenreList>
+      </Swiper>
     </DivGenres>
   );
 }

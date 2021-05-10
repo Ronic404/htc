@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-// import NewBlock from '../NewBlock';
-// import GenresBlock from '../GenresBlock';
+import NewBlock from '../NewBlock';
+import GenresBlock from '../GenresBlock';
 
 const MoviesPage: FC = () => {
   return (
     <>
-        {/* <NewBlock /> */}
-        {/* <GenresBlock /> */}
+        <NewBlock />
+        <GenresBlock />
     </>
   );
 }

@@ -18,4 +18,27 @@ export const device = {
   desktop: '(max-width: 2560px)',
 };
 
+export const swipeParams = {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    321: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    }
+  }
+}
+
 export default colors;

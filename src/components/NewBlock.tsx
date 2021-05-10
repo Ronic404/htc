@@ -1,17 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import Swiper from 'react-id-swiper';
 
 import movies from '../store/movies';
 import { TitleElement } from './elements/TitleElement';
+import { swipeParams } from '../styles/constants';
 
 const DivNew = styled.div`
   margin: 3rem auto;
-`;
-
-const MoviesList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
 `;
 
 const MovieDescription = styled.p`
@@ -30,8 +26,7 @@ const MovieDescription = styled.p`
   line-height: 1.4;
 `;
 
-const MovieItem = styled.li`
-  flex-basis: 25%;
+const MovieItem = styled.div`
 `;
 
 const MovieCover = styled.div`
@@ -60,7 +55,7 @@ const NewBlock: FC = () => {
   return (
     <DivNew className="container">
       <TitleElement>🔥 Новинки</TitleElement>
-      <MoviesList>
+      <Swiper {...swipeParams}>
         {movies.map(movie => (
           <MovieItem key={movie.id}>
             <MovieCover>
@@ -70,7 +65,7 @@ const NewBlock: FC = () => {
             <MovieTitle>{movie.title}</MovieTitle>
           </MovieItem>
         ))}
-      </MoviesList>
+      </Swiper>
     </DivNew>
   );
 }
