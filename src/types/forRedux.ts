@@ -6,7 +6,7 @@ enum ActionTypes {
 
 interface IState {
   isAuthorized: boolean;
-  isShowPopUp: boolean | undefined;
+  isShowPopUp: boolean;
 }
 
 interface ILogInAction {

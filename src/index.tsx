@@ -10,7 +10,7 @@ import App from './App';
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyles />
-    <App isShowPopUp/>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

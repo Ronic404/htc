@@ -44,11 +44,17 @@ interface IHeaderProps {
 // Component
 
 const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }) => {
-  const [personName, setPersonName] = useState<string>('name');
+  const localStorageSavedName = localStorage.getItem('name');
+  const [personName, setPersonName] = useState<string>(localStorageSavedName || 'name');
   const [showChangePersonName, setShowChangePersonName] = useState<boolean>(false);
   const [prevName, setPrevName] = useState<string>(personName);
 
   console.log('Render header');
+
+  if (isAuthorized) {
+    localStorage.setItem('name', personName);
+  }
+
 
   const clicker = useCallback((e: any) => {
     if (!e.target.classList.contains(InputChangeName.styledComponentId)) {
@@ -65,8 +71,9 @@ const Header:FC<IHeaderProps> = ({ isAuthorized, logOutAction, showPopUpAction }
   function buttonClickHandler(): void {
     if (isAuthorized) {
       logOutAction();
+      localStorage.removeItem('isAuth');
     } else {
-      showPopUpAction(true)
+      showPopUpAction(true);
     } 
   }
 

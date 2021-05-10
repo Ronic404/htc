@@ -131,6 +131,7 @@ const PopUp: FC<IPopUpProps> = ({ logInAction, showPopUpAction }) => {
     if (loginRef.current?.value === '123' && passwordRef.current?.value === '123') {
       logInAction();
       showPopUpAction(false);
+      localStorage.setItem('isAuth', 'true');
     } else if (loginRef.current?.value === '' || passwordRef.current?.value === '') {
       setErrorMessage('Введите логин и пароль');
       setIsWrong(true);
