@@ -9,19 +9,32 @@ import { MainButton, TransparentButton } from './elements/Buttons';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
 import { InputElement } from './elements/InputElement';
+import { device } from '../styles/constants';
 
 const DivHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 3rem auto;
-  height: 40px;
+  min-height: 40px;
   align-items: center;
+  @media ${device.laptop} {
+    flex-wrap: wrap;
+  }
+  /* @media ${device.mobileL} {
+    flex-direction: column;
+  } */
 `;
 
 const DivAuth = styled.div`
   width: 250px;
   display: flex;
   justify-content: flex-end;
+  @media ${device.laptop} {
+    flex-basis: 30%;
+  }
+  @media ${device.tablet} {
+    order: 2;
+  }
 `;
 
 const InputChangeName = styled(InputElement)`

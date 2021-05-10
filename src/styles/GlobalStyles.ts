@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import colors from './constants';
+
+import colors, { device } from './constants';
 
 import Rubik_regular from '../fonts/Rubik/static/Rubik-Regular.ttf';
 import Rubik_medium from '../fonts/Rubik/static/Rubik-Medium.ttf';
@@ -33,6 +34,9 @@ export default createGlobalStyle`
   html {
     font-size: 10px;
     color: ${colors.gray_1};
+    @media ${device.mobileL} {
+      font-size: 8px;
+    }
   }
 
   a {
@@ -42,5 +46,8 @@ export default createGlobalStyle`
   .container {
     width: 82%;
     margin: auto;
+    @media ${device.tablet} {
+      width: 90%;
+    }
   }
 `;

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import channelsList from '../store/channelsList';
-import colors from '../styles/constants';
+import colors, { device } from '../styles/constants';
 
 const DivNavBar = styled.div`
   user-select: none;
@@ -14,6 +14,9 @@ const Ul = styled.ul`
   font-size: 2.8rem;
   font-weight: 500;
   justify-content: center;
+  /* @media ${device.mobileL} {
+    font-size: 2rem;
+  } */
 `;
 
 const Li = styled.li`

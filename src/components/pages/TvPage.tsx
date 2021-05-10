@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import tvSchedule from '../../store/tvSchedule';
-import colors from '../../styles/constants';
+import colors, { device } from '../../styles/constants';
 
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
@@ -22,6 +22,9 @@ const ChannelsItem = styled.li`
   background: #F2F2F2;
   border-radius: 8px;
   padding: 2rem 0;
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const DivChannelLogo = styled.div`
@@ -38,6 +41,10 @@ const ChannelLogo = styled.img`
 
 const ChannelDescription = styled.div`
   flex-basis: 70%;
+  @media ${device.tablet} {
+    margin: 2rem;
+    margin-bottom: 0;
+  }
 `;
 
 const ChannelTitle = styled.h3`

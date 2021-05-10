@@ -2,11 +2,14 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import archer from '../img/archer.svg'
-import colors from '../styles/constants';
+import colors, { device } from '../styles/constants';
 
 const DivFooter = styled.div`
   background: ${colors.gray_6};
   margin-top: 7rem;
+  @media ${device.tablet} {
+    margin-top: 3rem;
+  }
 `;
 
 const Container = styled.div`
@@ -16,6 +19,9 @@ const Container = styled.div`
 
 const Archer = styled.img`
   margin-right: 4rem;
+  @media ${device.mobileL} {
+    margin-right: 2rem;
+  }
 `;
 
 const Socials = styled.div`
